@@ -137,25 +137,29 @@ import {
       source_code_link: "https://github.com/mrskjha/Cloud-Note-Book",
     },
     {
-      name: "Currency Converter",
+      name: "PACE in the Classroom",
       description:
-        "A currency converter app helps users get and up-to-date currency conversion rates quickly. They can be useful for travelers who want to track currency exchange rates and get real-time results.",
+        "PACE in the Classroom is a web-based application designed to help teachers and students manage their classroom activities effectively. With an intuitive user interface and robust features, users can create, edit, and delete tasks, assignments, and quizzes.",
       tags: [
         {
           name: "react",
           color: "blue-text-gradient",
         },
         {
-          name: "api",
+          name: "Pace_api",
           color: "green-text-gradient",
         },
         {
-          name: "css",
+          name: "Tailwind css",
           color: "pink-text-gradient",
         },
+        {
+          name:"threejs",
+          color:"blue-text-gradient",
+        }
       ],
       image: jobit,
-      source_code_link: "https://github.com/mrskjha/MiniReactProject/tree/main/currencyConverter",
+      source_code_link: "https://github.com/mrskjha/PACE-IN-CLASSROOMs",
     },
     {
       name: "Video Streaming",

@@ -21,8 +21,9 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 import carrent from "./carrent.png";
-import jobit from "./jobit.png";
+import jobit from "./tech/pace.png";
 import tripguide from "./tripguide.png";
+
 
 export {
   logo,
