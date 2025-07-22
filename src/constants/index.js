@@ -47,7 +47,7 @@ import {
       title: "Mobile Developer",
       icon: mobile,
     },{
-     title:"io Developer",
+     title:"ios Developer",
       icon: mobile,
     },
     

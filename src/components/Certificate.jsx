@@ -1,22 +1,29 @@
-import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionTemplate,
+} from "framer-motion";
 import { useRef } from "react";
-import { styles } from "../styles"; // Ensure this file exists and exports styles
-import { fadeIn, textVariant } from "../utils/motion"; // Ensure these utilities exist
+import { styles } from "../styles";
+import { fadeIn, textVariant } from "../utils/motion";
 
-const SECTION_HEIGHT = 1500; // Define SECTION_HEIGHT
+const SECTION_HEIGHT = 1500;
 
 const Certificate = () => {
   return (
     <>
-      <motion.div variants={textVariant()} className="pl-52 mt-12">
-        <p className={styles.sectionSubText}>Achievements</p>
-        <h2 className={styles.sectionHeadText}>Certificates</h2>
+      <motion.div variants={textVariant()} className="px-4 sm:px-10 lg:pl-32 mt-12">
+        <p className={`${styles.sectionSubText} text-sm sm:text-base`}>Achievements</p>
+        <h2 className={`${styles.sectionHeadText} text-[30px] sm:text-[40px]`}>
+          Certificates
+        </h2>
       </motion.div>
 
-      <div className="w-full flex pl-52">
+      <div className="w-full flex px-4 sm:px-10 lg:pl-32">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          className="mt-3 text-secondary text-[15px] sm:text-[17px] max-w-3xl leading-[26px] sm:leading-[30px]"
         >
           Here are some of the Courses I have completed.
         </motion.p>
@@ -24,7 +31,7 @@ const Certificate = () => {
 
       <div
         style={{ height: `calc(${SECTION_HEIGHT}px + 100vh)` }}
-        className="relative w-full top-0 pl-32"
+        className="relative w-full top-0 px-4 sm:px-10 lg:pl-32"
       >
         <CenterImage />
         <ParallaxImages />
@@ -55,43 +62,47 @@ const CenterImage = () => {
 
   return (
     <motion.div
-      className="sticky top-0 h-screen w-full"
-      style={{
-        clipPath,
-        backgroundSize,
-        opacity,
-        backgroundImage:
-          "url(https://i.postimg.cc/mBDMhGLS/Post-Man-API.png)",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    />
+  className=" top-0 h-screen w-full"
+  initial={{ opacity: 0, scale: 1.05 }}
+  animate={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 2, ease: "easeInOut" }}
+  style={{
+    clipPath,
+    backgroundSize: "cover", // Ensures full coverage
+    backgroundImage: "url(https://i.postimg.cc/mBDMhGLS/Post-Man-API.png)",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundColor: "#1a1a1a", // fallback for slow image load
+  }}
+/>
+
+
   );
 };
 
 const ParallaxImages = () => {
   return (
-    <div className="mx-auto max-w-5xl px-4">
+    <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
       <ParallaxImg
         src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~41OYQCUHYQXF/CERTIFICATE_LANDING_PAGE~41OYQCUHYQXF.jpeg"
-        alt="An example of a space launch"
+        alt="Coursera Certificate"
         start={-200}
         end={200}
-        className="w-1/2"
+        className="w-full sm:w-1/2 mb-8"
       />
       <ParallaxImg
         src="https://i.postimg.cc/MHs3p1V4/Sunny-Kumar-394620.png"
-        alt="An example of a space launch"
+        alt="Google Certificate"
         start={200}
         end={-250}
-        className="mx-auto w-2/3"
+        className="w-full sm:w-2/3 mx-auto mb-8"
       />
       <ParallaxImg
         src="https://i.postimg.cc/J42dwc1H/JAVA.png"
-        alt="Orbiting satellite"
+        alt="Java Certificate"
         start={-200}
         end={200}
-        className="ml-auto w-1/3"
+        className="w-full sm:w-1/3 ml-auto"
       />
     </div>
   );
@@ -113,7 +124,7 @@ const ParallaxImg = ({ className, alt, src, start, end }) => {
     <motion.img
       src={src}
       alt={alt}
-      className={className}
+      className={`${className} rounded-xl object-contain`}
       ref={ref}
       style={{ transform, opacity }}
     />
