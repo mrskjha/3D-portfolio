@@ -135,6 +135,7 @@ import {
       ],
       image: carrent,
       source_code_link: "https://github.com/mrskjha/Cloud-Note-Book",
+      live_link:"https://cloud-note-book.netlify.app/"
     },
     {
       name: "PACE in the Classroom",
@@ -160,6 +161,7 @@ import {
       ],
       image: jobit,
       source_code_link: "https://github.com/mrskjha/PACE-IN-CLASSROOMs",
+      live_link:"https://pace-in-classroom.vercel.app/"
     },
     {
       name: "Video Streaming",
@@ -186,6 +188,7 @@ import {
       ],
       image: tripguide,
       source_code_link: "https://github.com/mrskjha/Video-Streaming",
+      live_link:"https://video-streaming-eosin.vercel.app/"
     },
   ];
   

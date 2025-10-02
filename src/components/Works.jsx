@@ -14,7 +14,9 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  live_link,
 }) => {
+  
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
       <Tilt
@@ -57,20 +59,29 @@ const ProjectCard = ({
             </p>
           ))}
         </div>
+        <div className="mt-4">
+          <button
+            onClick={() => window.open(live_link, "_blank")}
+            className="text-white bg-blue-600 px-3 py-1 rounded-md hover:bg-blue-700 transition"
+          >
+            Live Demo
+          </button>
+        </div>
       </Tilt>
     </motion.div>
   );
 };
 
 const Works = () => {
+  
   return (
     <>
       <motion.div variants={textVariant()} className="pl-2">
         <p className={styles.sectionSubText}>My Work</p>
-        <h2 className={styles.sectionHeadText}>Projects.</h2>
+        <h2 className={styles.sectionHeadText}>Projects</h2>
       </motion.div>
 
-      <div className="w-full flex">
+      <div className="w-full flex" >
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 pl-2 text-secondary text-[17px] max-w-3xl leading-[30px]"
@@ -81,7 +92,7 @@ const Works = () => {
       </div>
       <div className="mt-20 mx-10 my-4 flex flex-wrap gap-7">
         {projects.map((project, index) => (
-          <ProjectCard key={`project-${index}`} index={index} {...project} />
+          <ProjectCard key={`project-${index}`} index={index} {...project}  />
         ))}
       </div>
     </>
