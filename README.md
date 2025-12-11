@@ -39,12 +39,12 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/3d-portfolio-website.git
+    git clone https://github.com/mrskjha/3D-portfolio.git
     ```
 
 2. Navigate to the project directory:
     ```bash
-    cd 3d-portfolio-website
+    cd 3D-portfolio
     ```
 
 3. Install dependencies:
@@ -57,12 +57,12 @@ To run this project locally, follow these steps:
 To start the development server and view the website locally:
 
 ```bash
-npm start
-
+npm run dev
+```
 
 ## Contact
 If you have any questions or feedback, feel free to reach out:
 
-Email: your-jhsaunny550@gmail.com
+Email: jhsaunny550@gmail.com
 LinkedIn: https://www.linkedin.com/in/sunny-jha-41687026b/
 Thank you for visiting my 3D portfolio website!
