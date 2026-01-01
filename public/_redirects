@@ -1,1 +1,2 @@
 /webhealth/* https://web-health-checker.vercel.app/:splat  200
+/_next/* https://web-health-checker.vercel.app/_next/:splat  200
