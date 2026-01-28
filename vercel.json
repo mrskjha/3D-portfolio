@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/webhealth/:path*",
+      "destination": "https://web-health-checker.vercel.app/:path*"
+    }
+  ]
+}
