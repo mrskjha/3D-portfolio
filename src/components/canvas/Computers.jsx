@@ -1,7 +1,6 @@
 import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
-
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
@@ -16,13 +15,12 @@ const Computers = ({ isMobile }) => {
         penumbra={1}
         intensity={1}
         castShadow
-        shadow-mapSize={1024}
       />
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
+        scale={0.75}
+        position={[0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -33,32 +31,34 @@ const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mediaQuery = window.matchMedia("(max-width: 600px)");
     setIsMobile(mediaQuery.matches);
 
-    const handleChange = (event) => {
-      setIsMobile(event.matches);
-    };
-
+    const handleChange = (e) => setIsMobile(e.matches);
     mediaQuery.addEventListener("change", handleChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
+    return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
+
+  // AGAR MOBILE HAI TO IMAGE DIKHAO
+  if (isMobile) {
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <img 
+          src="/desktop_pc/fallback.png" 
+          alt="PC Setup" 
+          className="w-[80%] h-auto object-contain"
+        />
+      </div>
+    );
+  }
 
   return (
     <Canvas
-      frameloop='demand' 
+      frameloop='demand'
       shadows
-      dpr={[1, 2]} 
+      dpr={[1, 1.5]} // Resolution kam rakho for stability
       camera={{ position: [20, 3, 5], fov: 25 }}
-      gl={{ 
-        preserveDrawingBuffer: true,
-        powerPreference: "high-performance", 
-        antialias: false 
-      }}
+      gl={{ preserveDrawingBuffer: true, antialias: false }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
@@ -68,7 +68,6 @@ const ComputersCanvas = () => {
         />
         <Computers isMobile={isMobile} />
       </Suspense>
-
       <Preload all />
     </Canvas>
   );
